@@ -1,0 +1,34 @@
+[project]
+name = "upstream-probe"
+version = "0.1.0"
+description = "External DNS/HTTPS probes for upstream health."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "UNLICENSED"}
+authors = [{name = "Ops"}]
+dependencies = [
+  "httpx>=0.27.0",
+  "dnspython>=2.6.1",
+  "PyYAML>=6.0.2",
+]
+
+[project.scripts]
+upstream-probe = "upstream_probe.cli:main"
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "B", "UP", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+addopts = "-q"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]

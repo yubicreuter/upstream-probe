@@ -1,0 +1,29 @@
+app:
+  name: upstream-probe
+  vlan: "vlan-10"
+  log_level: INFO
+  user_agent: "upstream-probe/0.1"
+  timeout_seconds: 2.5
+  retries: 2
+  backoff_base_seconds: 0.3
+  backoff_max_seconds: 2.0
+
+dns:
+  query_name: "example.com"
+  resolvers:
+    - "1.1.1.1"
+    - "8.8.8.8"
+  # - "ISP_RESOLVER_IP"
+
+http:
+  method: "HEAD"
+  targets:
+    - "https://www.cloudflare.com/"
+    - "https://github.com/"
+  # - "https://ring.example.local/health"
+
+influx:
+  url: "http://influxdb:8086"
+  org: "homelab"
+  bucket: "netops"
+  measurement: "upstream_probe"

@@ -1,0 +1,2 @@
+d /etc/upstream-probe 0750 upstream-probe upstream-probe -
+d /var/lib/upstream-probe 0750 upstream-probe upstream-probe -
